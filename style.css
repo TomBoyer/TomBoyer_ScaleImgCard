@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #262626;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, transparent, #0004);
+}
+
+.container .box {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    width: 320px;
+    height: 400px;
+    margin: 0 20px;
+    border-radius: 20px;
+
+    background: linear-gradient(45deg,
+            rgb(184, 76, 14) 25%,
+            #444 25%,
+            #444 50%,
+            rgb(184, 76, 14) 50%,
+            rgb(184, 76, 14) 75%,
+            #444 75%,
+            #444 100%,
+            rgb(184, 76, 14) 100%);
+    background-size: 40px 40px;
+    filter: grayscale(1);
+
+    animation: animateBg .5s linear infinite;
+    animation-play-state: paused;
+
+    transition: filter 1.5s;
+}
+
+.container .box:nth-child(2) {
+    background: linear-gradient(135deg,
+            rgb(47, 119, 253) 25%,
+            #444 25%,
+            #444 50%,
+            rgb(47, 119, 253) 50%,
+            rgb(47, 119, 253) 75%,
+            #444 75%,
+            #444 100%,
+            rgb(47, 119, 253) 100%);
+    background-size: 40px 40px;
+}
+
+.container .box:hover {
+    animation-play-state: running;
+    filter: grayscale(0);
+}
+
+@keyframes animateBg {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: 40px;
+    }
+}
+
+.container .box img {
+    position: absolute;
+    bottom: 0;
+    height: 90%;
+    transition: height .3s;
+}
+
+.container .box:hover img {
+    height: 110%;
+}
